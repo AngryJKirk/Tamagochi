@@ -10,6 +10,9 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 /**
  * Created by Deadliest Baddest Fattest Motherfucker in Universe on 23.06.2016.
  */
+
+
+// TODO make it work
 public class TelegramBot extends TelegramLongPollingBot{
     String chatID = null;
     Message message;
