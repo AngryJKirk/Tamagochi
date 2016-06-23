@@ -11,9 +11,14 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 public class Tamagochi {
 
     public static void main(String[] args)   throws IOException, InterruptedException {
+
         FSM fsm = new FSM("Lena");
         fsm.setNextState();
 
+
+      //  telegramBot.getMessage();
+        //telegramBot.onUpdateReceived(Update update);
+       // telegramBot.getMessage();
     }
 
 

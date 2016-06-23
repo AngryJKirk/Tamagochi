@@ -13,10 +13,15 @@ public class FSM {
     enum States {HAPPY, WANTEAT, WANTSLEEP, EATING, SLEEPING, WANTBOTH}
     States state = States.HAPPY;
     private Creature creature = new Creature();
+    TelegramBot telegramBot = new TelegramBot();
 
-    FSM(String name){ this.creature.setName(name);}
+    FSM(String name){ this.creature.setName(name);
+        telegramBot.registerBot();
+        }
 
     public void setNextState() throws InterruptedException, IOException {
+
+        telegramBot.notify("IM ALIVE");
         switch (state){
             case HAPPY: happy();
             case WANTEAT: wantEat();
@@ -120,8 +125,9 @@ public class FSM {
     private void happy() throws InterruptedException, IOException {
        // while (creature.getDream() > 50 && creature.getHungry() > 50 ){
         while (true){
-           // TimeUnit.SECONDS.sleep(10);
+           TimeUnit.SECONDS.sleep(3);
             System.out.println("I AM HAPPY!");
+            telegramBot.notify("I AM HAPPY!");
             creature.changeDream(false);
             creature.changeHungry(false);
             if (creature.getHungry() <50 & creature.getDream() <50) {state = States.WANTBOTH; break; }
